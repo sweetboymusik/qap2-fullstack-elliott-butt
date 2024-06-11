@@ -15,31 +15,43 @@ const server = http.createServer((req, res) => {
   }
 
   let path = "./views/";
+
+  // router
   switch (req.url) {
     case "/":
-      console.log("root");
+      console.log("root page");
       path += "index.html";
-      routes.homePage(path, res);
+      routes.getPage(path, res);
       break;
     case "/about":
-      console.log("about");
+      console.log("about page");
       path += "about.html";
-      routes.aboutPage(path, res);
+      routes.getPage(path, res);
       break;
     case "/contact":
-      console.log("contact");
+      console.log("contact page");
       path += "contact.html";
-      routes.contactPage(path, res);
+      routes.getPage(path, res);
       break;
     case "/browse":
-      console.log("browse");
+      console.log("browse page");
       path += "browse.html";
-      routes.browsePage(path, res);
+      routes.getPage(path, res);
       break;
     case "/categories":
-      console.log("categories");
+      console.log("categories page");
       path += "categories.html";
-      routes.categoriesPage(path, res);
+      routes.getPage(path, res);
+      break;
+    case "/partners":
+      console.log("partners page");
+      path += "partners.html";
+      routes.getPage(path, res);
+      break;
+    case "/team":
+      console.log("team page");
+      path += "team.html";
+      routes.getPage(path, res);
       break;
     default:
       res.writeHead(404, { "Content-Type": "text/plain" });

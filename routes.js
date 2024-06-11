@@ -12,30 +12,10 @@ function fetchFile(fileName, response) {
   });
 }
 
-function contactPage(path, response) {
-  fetchFile(path, response);
-}
-
-function aboutPage(path, response) {
-  fetchFile(path, response);
-}
-
-function homePage(path, response) {
-  fetchFile(path, response);
-}
-
-function browsePage(path, response) {
-  fetchFile(path, response);
-}
-
-function categoriesPage(path, response) {
+function getPage(path, response) {
   fetchFile(path, response);
 }
 
 module.exports = {
-  aboutPage,
-  contactPage,
-  homePage,
-  browsePage,
-  categoriesPage,
+  getPage,
 };
