@@ -66,8 +66,7 @@ const server = http.createServer((req, res) => {
       routes.getPage(path, res);
       break;
     case "/secret":
-      res.writeHead(403);
-      res.end();
+      routes.getSecret(res);
       break;
     case "/weather":
       console.log("weather page");
