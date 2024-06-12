@@ -62,6 +62,10 @@ const server = http.createServer((req, res) => {
       path += "test.html";
       routes.getPage(path, res);
       break;
+    case "/weather":
+      console.log("weather page");
+      routes.getWeather(res);
+      break;
     default:
       console.log(req.url);
       emitter.emit("notFound");
