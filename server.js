@@ -1,11 +1,11 @@
-global.DEBUG = true;
-
+// imports
 const http = require("http");
 const routes = require("./routes");
 const { emitter } = require("./events");
 
 const PORT = 3000;
 
+// create server
 const server = http.createServer((req, res) => {
   console.log(req.url);
 
@@ -18,7 +18,7 @@ const server = http.createServer((req, res) => {
 
   let path = "./views/";
 
-  // router
+  // routes
   switch (req.url) {
     case "/":
     case "/home":
@@ -75,6 +75,7 @@ const server = http.createServer((req, res) => {
   }
 });
 
+// start server listen
 server.listen(PORT, () => {
-  console.log("server running on port 3000");
+  console.log(`server running on port ${PORT}`);
 });
