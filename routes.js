@@ -20,6 +20,20 @@ function getPage(path, response) {
   fetchFile(path, response);
 }
 
+function getAdmin(filename, response) {
+  fs.readFile(filename, (error, content) => {
+    if (error) {
+      response.writeHead(500, { "Content-Type": "text/plain" });
+      response.end("500 Internal Server Error");
+      emitter.emit("fetchFile", filename, 500);
+    } else {
+      response.writeHead(511, { "Content-Type": "text/html" });
+      response.end(content, "utf-8");
+      emitter.emit("fetchFile", filename, 511);
+    }
+  });
+}
+
 function getWeather(response) {
   weather.find(
     { search: "St. John's, Canada", degreeType: "C" },
@@ -34,5 +48,6 @@ function getWeather(response) {
 
 module.exports = {
   getPage,
+  getAdmin,
   getWeather,
 };
