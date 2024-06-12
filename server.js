@@ -21,11 +21,14 @@ const server = http.createServer((req, res) => {
   // routes
   switch (req.url) {
     case "/":
-    case "/home":
       console.log("root page");
       emitter.emit("homepage");
       path += "home.html";
       routes.getPage(path, res);
+      break;
+    case "/home":
+      res.writeHead(302, { location: "/" });
+      res.end();
       break;
     case "/about":
       console.log("about page");
@@ -47,10 +50,10 @@ const server = http.createServer((req, res) => {
       path += "categories.html";
       routes.getPage(path, res);
       break;
-    case "/partners":
-      console.log("partners page");
-      path += "partners.html";
-      routes.getPage(path, res);
+    case "/admin":
+      console.log("admin page");
+      path += "admin.html";
+      routes.getAdmin(path, res);
       break;
     case "/team":
       console.log("team page");
@@ -61,6 +64,10 @@ const server = http.createServer((req, res) => {
       console.log("test page");
       path += "test.html";
       routes.getPage(path, res);
+      break;
+    case "/secret":
+      res.writeHead(403);
+      res.end();
       break;
     case "/weather":
       console.log("weather page");
