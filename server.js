@@ -2,6 +2,8 @@ global.DEBUG = true;
 
 const http = require("http");
 const routes = require("./routes");
+const { emitter } = require("./events");
+
 const PORT = 3000;
 
 const server = http.createServer((req, res) => {
@@ -20,7 +22,8 @@ const server = http.createServer((req, res) => {
   switch (req.url) {
     case "/":
       console.log("root page");
-      path += "index.html";
+      emitter.emit("homepage");
+      path += "home.html";
       routes.getPage(path, res);
       break;
     case "/about":
@@ -53,7 +56,14 @@ const server = http.createServer((req, res) => {
       path += "team.html";
       routes.getPage(path, res);
       break;
+    case "/test":
+      console.log("test page");
+      path += "test.html";
+      routes.getPage(path, res);
+      break;
     default:
+      console.log(req.url);
+      emitter.emit("notFound");
       res.writeHead(404, { "Content-Type": "text/plain" });
       res.end("404 Not Found");
       break;
