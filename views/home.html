@@ -3,25 +3,107 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../styles/style.css" />
     <title>Home</title>
+    <style>
+      * {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .page-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: rgb(206, 228, 235);
+        border-radius: 10px;
+        width: 920px;
+        overflow: hidden;
+        margin: 32px;
+      }
+
+      h1 {
+        font-size: 100px;
+      }
+
+      nav {
+        display: flex;
+        padding: 16px 0;
+        justify-content: space-around;
+        align-items: center;
+        background-color: rgb(170, 202, 211);
+        width: 100%;
+      }
+
+      nav a,
+      nav a:visited {
+        text-decoration: none;
+        padding: 8px;
+      }
+
+      nav a:hover,
+      #active {
+        color: rgb(170, 202, 211);
+        background-color: rgb(83, 83, 122);
+        border-radius: 4px;
+      }
+
+      main {
+        display: flex;
+        padding: 16px;
+        width: 100%;
+      }
+
+      .main-div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 32px;
+        width: 100%;
+        margin: 32px;
+      }
+
+      img {
+        width: 200px;
+      }
+
+      .main-header {
+        display: flex;
+        gap: 32px;
+        justify-content: center;
+        align-items: center;
+      }
+
+      p {
+        font-size: 24px;
+        text-align: center;
+      }
+    </style>
   </head>
   <body>
     <div class="page-container">
       <nav>
-        <a href="../views/home.html" id="active">Home</a>
-        <a href="../views/about.html">About Us</a>
-        <a href="../views/team.html">Our Team</a>
-        <a href="../views/browse.html">Browse</a>
-        <a href="../views/categories.html">Categories</a>
-        <a href="../views/partners.html">Our Partners</a>
-        <a href="../views/contact.html">Contact</a>
+        <a href="/home" id="active">Home</a>
+        <a href="/about">About Us</a>
+        <a href="/team">Our Team</a>
+        <a href="/browse">Browse</a>
+        <a href="/categories">Categories</a>
+        <a href="/partners">Our Partners</a>
+        <a href="/contact">Contact</a>
       </nav>
 
       <main>
         <div class="main-div">
           <div class="main-header">
-            <img src="../assets/home.png" alt="" />
             <h1>Home</h1>
           </div>
 

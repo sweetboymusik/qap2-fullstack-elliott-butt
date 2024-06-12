@@ -21,6 +21,7 @@ const server = http.createServer((req, res) => {
   // router
   switch (req.url) {
     case "/":
+    case "/home":
       console.log("root page");
       emitter.emit("homepage");
       path += "home.html";
