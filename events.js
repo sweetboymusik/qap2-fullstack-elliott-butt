@@ -7,9 +7,8 @@ const emitter = new Emitter();
 /*
     homepage visted event
 
-    logs when the home page has been visited
-
-    Use: keep a log of 
+    logs when the home page has 
+    been visited by user 
 */
 emitter.on("homepage", () => {
   console.log("home page has been visited");
@@ -59,6 +58,21 @@ emitter.on("fetchFile", (filename, status) => {
 emitter.on("notFound", (url) => {
   console.log(`url ${url} does not exist.`);
   logEvent("not-found", "ROUTE NOT FOUND", 404, `ROUTE-NAME: ${url}`);
+});
+
+/*
+    secret visited event
+
+    logs when the secret page has 
+    been visited by user 
+
+    use: know how many times
+    users have tried to get your secrets...
+    they'll never get them!!!
+*/
+emitter.on("secretAccessed", () => {
+  console.log("secret page access was attempted");
+  logEvent("secret-accessed", "SECRET ACCESSED", 403, ``);
 });
 
 module.exports = {

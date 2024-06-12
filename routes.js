@@ -34,6 +34,12 @@ function getAdmin(filename, response) {
   });
 }
 
+function getSecret(res) {
+  emitter.emit("secretAccessed");
+  res.writeHead(403);
+  res.end();
+}
+
 function getWeather(response) {
   weather.find(
     { search: "St. John's, Canada", degreeType: "C" },
@@ -49,5 +55,6 @@ function getWeather(response) {
 module.exports = {
   getPage,
   getAdmin,
+  getSecret,
   getWeather,
 };
