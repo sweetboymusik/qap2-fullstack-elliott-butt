@@ -1,3 +1,4 @@
+const { logEvent } = require("./logs");
 const EventEmitter = require("events");
 class Emitter extends EventEmitter {}
 
@@ -12,6 +13,7 @@ const emitter = new Emitter();
 */
 emitter.on("homepage", () => {
   console.log("home page has been visited");
+  logEvent("home-visit", "HOME VISITED", 200, "");
 });
 
 /*
@@ -30,8 +32,15 @@ emitter.on("homepage", () => {
 emitter.on("fetchFile", (filename, status) => {
   if (status === 200) {
     console.log(`${filename} fetched successfully.`);
+    logEvent(
+      "fetch-file",
+      "FETCH FILE",
+      200,
+      `SUCCESSFULLY FETCHED [${filename}]`
+    );
   } else if (status === 500) {
     console.log(`${filename} failed to fetch. File does not exist.`);
+    logEvent("fetch-file", "FETCH FILE", 500, `FAILED TO FETCH [${filename}]`);
   }
 });
 
@@ -49,6 +58,7 @@ emitter.on("fetchFile", (filename, status) => {
 */
 emitter.on("notFound", (url) => {
   console.log(`url ${url} does not exist.`);
+  logEvent("not-found", "ROUTE NOT FOUND", 404, `ROUTE-NAME: ${url}`);
 });
 
 module.exports = {
